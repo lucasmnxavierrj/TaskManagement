@@ -1,0 +1,80 @@
+﻿@using TaskManagement.Application.InputModels;
+@model RegisterInputModel;
+@{
+	ViewData["Title"] = "Register";
+	Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<title>TaskManagement - @ViewData["Title"]</title>
+	<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+	<!-- CSS -->
+	<link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="~/css/style.css">
+</head>
+<body id="login-body">
+	<div id="login-overlay"></div>
+	<div class="container centered-card">
+		<div class="card" id="card-auth">
+			<div class="row">
+				<a asp-controller="Login" asp-action="Index">
+					<i class="fa-solid fa-circle-chevron-left" id="return-login-arrow"></i>
+				</a>
+				<h3 id="card-login-title">TaskManager Registro</h3>
+			</div>
+			<hr />
+			<div class="card-body">
+				<form method="post" asp-controller="Register" asp-action="Create" id="register-form">
+					<div class="form-group">
+						<div class="row">
+							<div class="col">
+								<label asp-for="FirstName" class="control-label">Primeiro Nome</label>
+								<input asp-for="FirstName" type="text" class="form-control" placeholder="João">
+								<span asp-validation-for="FirstName" class="text-danger"></span>
+							</div>
+							<div class="col">
+								<label asp-for="LastName">Sobrenome</label>
+								<input asp-for="LastName" type="text" class="form-control" placeholder="Silva">
+								<span asp-validation-for="LastName" class="text-danger"></span>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label asp-for="UserName">Usuário</label>
+						<input asp-for="UserName"  type="text" class="form-control" placeholder="JOAOSI">
+						<span asp-validation-for="UserName" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Email">E-mail</label>
+						<input asp-for="Email" type="email" class="form-control" placeholder="joaosilva@email.com">
+						<span asp-validation-for="Email" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="ConfirmationEmail">Confirmação E-mail</label>
+						<input asp-for="ConfirmationEmail" type="email" class="form-control" placeholder="joaosilva@email.com">
+						<span asp-validation-for="ConfirmationEmail" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Password">Senha</label>
+						<input asp-for="Password" type="password" class="form-control" placeholder="Digite sua Senha">
+						<span asp-validation-for="Password" class="text-danger"></span>
+					</div>
+					<button type="submit" class="btn btn-dark btn-login">Registrar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="~/lib/jquery/jquery.js"></script>
+	<partial name="_ValidationScripts" />
+	<script src="~/lib/bootstrap/js/bootstrap.js"></script>
+	<script src="https://kit.fontawesome.com/6e89ef37f6.js" crossorigin="anonymous"></script>
+	<script src="~/js/script.js"></script>
+	<script src="~/js/login/login.js"></script>
+</body>
+</html>
