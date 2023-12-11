@@ -17,6 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TaskManagement.Infra.Data\TaskManagement.Infra.Data.csproj" />
     <ProjectReference Include="..\TaskManagement.Infra.IoC\TaskManagement.Infra.IoC.csproj" />
   </ItemGroup>

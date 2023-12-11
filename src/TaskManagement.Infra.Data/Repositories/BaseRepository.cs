@@ -1,25 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaskManagement.Domain.Interfaces;
+﻿using TaskManagement.Domain.Interfaces;
 using TaskManagement.Infra.Data.Context;
 
 namespace TaskManagement.Infra.Data.Repositories
 {
-	public class BaseRepository<Entity> : IBaseRepository<Entity> where Entity : class
+	public class BaseRepository<T> : IBaseRepository<T> where T : class
 	{
-		protected readonly AppDbContext _context;
-
-		public BaseRepository(AppDbContext context)
+		public readonly AppDbContext _context;
+		public BaseRepository(AppDbContext context) 
 		{
 			_context = context;
 		}
 
-		public void Add(Entity entity)
-			=> _context.Add(entity);
-
 		public void Commit() => _context.SaveChanges();
+		public void Add(T entity) => _context.Add(entity);
 	}
 }

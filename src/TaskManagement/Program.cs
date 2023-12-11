@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.Infra.Data.Context;
 using TaskManagement.Infra.IoC;
+using TaskManagement.MVC.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddDbContext<AppDbContext>(db =>
 	b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
 
 builder.Services.RegisterServices();
+
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 var app = builder.Build();
 

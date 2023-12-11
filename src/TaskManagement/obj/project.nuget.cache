@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "9bjVfpZwvd4C7YKV0x554wElbLHKRheV2qsdAA2X9E3yjLrMS9fvdC8htddnT57wI8hsK7wLmjo0ZNx1YCYx0Q==",
+  "dgSpecHash": "5Az4GsoipZtMLSO3npCIoOAaGBeqQ6eB3siaTtWRkEMylY38TDzpH1lWLq0DQ+P86uxMTk7BK3GhK5zqBXvOLg==",
   "success": true,
   "projectFilePath": "C:\\DEV\\TaskManagement\\src\\TaskManagement\\TaskManagement.MVC.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lucas Matias\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Lucas Matias\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Lucas Matias\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Lucas Matias\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\Lucas Matias\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "C:\\Users\\Lucas Matias\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Lucas Matias\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Lucas Matias\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",
     "C:\\Users\\Lucas Matias\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.1.0\\microsoft.data.sqlclient.sni.runtime.5.1.0.nupkg.sha512",
     "C:\\Users\\Lucas Matias\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",

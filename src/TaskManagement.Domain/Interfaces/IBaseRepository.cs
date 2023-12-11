@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TaskManagement.Domain.Interfaces
+﻿namespace TaskManagement.Domain.Interfaces
 {
-	public interface IBaseRepository<Entity> where Entity : class
+	public interface IBaseRepository<T> where T : class
 	{
-		void Add(Entity entity);
+		void Add(T entity);
 		void Commit();
 	}
 }

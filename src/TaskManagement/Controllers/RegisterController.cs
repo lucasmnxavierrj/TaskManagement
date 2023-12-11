@@ -1,16 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using TaskManagement.Application.InputModels;
 using TaskManagement.Application.Services;
+using TaskManagement.Domain.Entities;
 
 namespace TaskManagement.MVC.Controllers
 {
 	public class RegisterController : Controller
 	{
 		private readonly UserService _userService;
+		private readonly IMapper _mapper;
 
-		public RegisterController(UserService userService)
+		public RegisterController(UserService userService, IMapper mapper)
 		{
 			_userService = userService;
+			_mapper = mapper;
 		}
 		public IActionResult Index()
 		{
@@ -22,16 +26,9 @@ namespace TaskManagement.MVC.Controllers
 			if (!ModelState.IsValid)
 				return View("Index", dadosRegistro);
 
-			_userService.Add(new Domain.Entities.User
-			{
-				FirstName = dadosRegistro.FirstName,
-				LastName = dadosRegistro.LastName,
-				Email = dadosRegistro.Email,
-				Password = dadosRegistro.Password,
-				UserName = dadosRegistro.UserName,
-				LastUpdatedOn = DateTime.Now,
-				CreatedOn = DateTime.Now,
-			});
+			var usuario = _mapper.Map<User>(dadosRegistro);
+
+			_userService.Add(usuario);
 
 			_userService.Commit();
 
