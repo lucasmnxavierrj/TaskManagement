@@ -12,5 +12,6 @@ namespace TaskManagement.Application.Services
 
 		public void Commit() => _baseRepository.Commit();
 		public void Add(T entity) => _baseRepository.Add(entity);
+		public async Task AddAsync(T entity) => await _baseRepository.AddAsync(entity);
 	}
 }

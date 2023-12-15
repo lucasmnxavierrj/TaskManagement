@@ -12461,6 +12461,7 @@ footer {
 .card {
     padding: 18px;
     box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.2);
+    width: 32rem;
 }
 
 #return-login-arrow {
@@ -12479,7 +12480,6 @@ footer {
 }
 
 #card-auth {
-    width: 28rem;
     height: auto;
 }
 

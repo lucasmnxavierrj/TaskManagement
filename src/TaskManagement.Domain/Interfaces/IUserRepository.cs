@@ -9,5 +9,6 @@ namespace TaskManagement.Domain.Interfaces
 {
 	public interface IUserRepository : IBaseRepository<User>
 	{
+		Task<bool> IsUserCadastradoByEmail(string email);
 	}
 }

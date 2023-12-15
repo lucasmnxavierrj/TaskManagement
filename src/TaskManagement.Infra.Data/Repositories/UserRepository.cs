@@ -14,7 +14,7 @@ namespace TaskManagement.Infra.Data.Repositories
 	{
 		public UserRepository(AppDbContext context) : base(context) { }
 
-		public User? GetTeste(int id)
-			=> _context.Users.SingleOrDefault(x => x.Id == id);
+		public async Task<bool> IsUserCadastradoByEmail(string email)
+			=> await _context.Users.AsNoTracking().AnyAsync(x => x.Email == email);
 	}
 }

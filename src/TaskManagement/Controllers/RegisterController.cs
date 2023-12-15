@@ -21,18 +21,26 @@ namespace TaskManagement.MVC.Controllers
 			return View();
 		}
 		[HttpPost]
-		public IActionResult Create(RegisterInputModel dadosRegistro)
+		public async Task<IActionResult> Create(RegisterInputModel dadosRegistro)
 		{
 			if (!ModelState.IsValid)
 				return View("Index", dadosRegistro);
 
 			var usuario = _mapper.Map<User>(dadosRegistro);
 
-			_userService.Add(usuario);
+			var retorno = await _userService.TryAddNewUser(usuario);
 
-			_userService.Commit();
+			if (retorno.Success is false)
+			{
+				TempData["ErrorRegistering"] = retorno.Message;
 
-			return RedirectToAction("Index","Login");
+				return View("Index", dadosRegistro);
+			}
+
+			TempData["SuccessRegisted"] = retorno.Message;
+
+			return RedirectToAction("Index", "Login");
+
 		}
 	}
 }

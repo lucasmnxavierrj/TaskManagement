@@ -31,6 +31,14 @@
 			<div class="card-body">
 				<form method="post" asp-controller="Register" asp-action="Create" id="register-form">
 					<div class="form-group">
+						@if (TempData["ErrorRegistering"] != null)
+						{
+							<div class="alert alert-danger" role="alert">
+								<small>
+									@TempData["ErrorRegistering"]
+								</small>
+							</div>
+						}
 						<div class="row">
 							<div class="col">
 								<label asp-for="FirstName" class="control-label">Primeiro Nome</label>

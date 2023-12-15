@@ -13,5 +13,7 @@ namespace TaskManagement.Infra.Data.Repositories
 
 		public void Commit() => _context.SaveChanges();
 		public void Add(T entity) => _context.Add(entity);
+		public async Task AddAsync(T entity) => await _context.AddAsync(entity);
+
 	}
 }
