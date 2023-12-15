@@ -212,7 +212,7 @@ namespace TaskManagement.Infra.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Tasks");
+                    b.ToTable("Tasks", (string)null);
                 });
 
             modelBuilder.Entity("TaskManagement.Domain.Entities.TaskType", b =>
@@ -235,7 +235,7 @@ namespace TaskManagement.Infra.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TaskTypes");
+                    b.ToTable("TaskTypes", (string)null);
                 });
 
             modelBuilder.Entity("TaskManagement.Domain.Entities.User", b =>
