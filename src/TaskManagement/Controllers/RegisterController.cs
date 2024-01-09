@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagement.Application.InputModels;
 using TaskManagement.Application.Services;
@@ -8,12 +9,12 @@ namespace TaskManagement.MVC.Controllers
 {
 	public class RegisterController : Controller
 	{
-		private readonly UserService _userService;
+		private readonly UserManager<User> _userManager;
 		private readonly IMapper _mapper;
 
-		public RegisterController(UserService userService, IMapper mapper)
+		public RegisterController(UserManager<User> userManager, IMapper mapper)
 		{
-			_userService = userService;
+			_userManager = userManager;
 			_mapper = mapper;
 		}
 		public IActionResult Index()
@@ -28,18 +29,18 @@ namespace TaskManagement.MVC.Controllers
 
 			var usuario = _mapper.Map<User>(dadosRegistro);
 
-			var retorno = await _userService.TryAddNewUser(usuario);
+			var resultado = await _userManager.CreateAsync(usuario, dadosRegistro.Password);
 
-			if (retorno.Success is false)
+			if (resultado.Succeeded)
 			{
-				TempData["ErrorRegistering"] = retorno.Message;
+				TempData["SuccessRegisted"] = "Usuário cadastrado com sucesso! 🥳";
 
-				return View("Index", dadosRegistro);
+				return RedirectToAction("Index", "Login");
 			}
 
-			TempData["SuccessRegisted"] = retorno.Message;
-
-			return RedirectToAction("Index", "Login");
+			TempData["ErrorRegistering"] = resultado.Errors.Select(x => x.Description).ToList();
+			
+			return View("Index", dadosRegistro);
 
 		}
 	}

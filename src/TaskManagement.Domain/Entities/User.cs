@@ -6,10 +6,9 @@ namespace TaskManagement.Domain.Entities
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Password { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime LastUpdatedOn { get; set; }
-        public IEnumerable<Task>? Tasks { get; set; }
+        public IEnumerable<AppTask>? Tasks { get; set; }
 		public ICollection<IdentityUserRole<int>> UserRoles { get; set; }
 	}
 

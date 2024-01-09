@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using TaskManagement.Domain.Interfaces;
 
 namespace TaskManagement.Application.InputModels
 {
-	public class LoginInputModel
+	public class LoginInputModel : ILoginInputModel
 	{
 		[Required(ErrorMessage = "O campo é obrigatório.")]
 		[EmailAddress(ErrorMessage = "Digite um e-mail válido.")]

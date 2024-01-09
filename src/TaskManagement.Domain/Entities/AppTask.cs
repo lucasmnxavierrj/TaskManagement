@@ -1,6 +1,6 @@
 ﻿namespace TaskManagement.Domain.Entities
 {
-    public class Task
+    public class AppTask
     {
 
         public int Id { get; set; }

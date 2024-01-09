@@ -9,9 +9,9 @@ using TaskManagement.Domain.Entities;
 
 namespace TaskManagement.Infra.Data.EntityConfigurations
 {
-	public class TaskConfigurations : IEntityTypeConfiguration<Domain.Entities.Task>
+	public class TaskConfigurations : IEntityTypeConfiguration<Domain.Entities.AppTask>
 	{
-		public void Configure(EntityTypeBuilder<Domain.Entities.Task> builder)
+		public void Configure(EntityTypeBuilder<Domain.Entities.AppTask> builder)
 		{
 			builder.HasKey(t => t.Id);
 

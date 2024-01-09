@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using TaskManagement.Domain.Interfaces;
 
 namespace TaskManagement.Application.InputModels
 {
-	public class RegisterInputModel
+	public class RegisterInputModel : IRegisterInputModel
 	{
 		[Required(ErrorMessage ="O campo é obrigatório.")]
 		[StringLength(30, ErrorMessage ="O campo {0} precisa ter entre {2} e {1} caracteres.", MinimumLength = 3)]

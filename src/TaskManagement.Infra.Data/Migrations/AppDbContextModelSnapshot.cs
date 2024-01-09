@@ -129,42 +129,7 @@ namespace TaskManagement.Infra.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("TaskManagement.Domain.Entities.Role", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("Roles", (string)null);
-                });
-
-            modelBuilder.Entity("TaskManagement.Domain.Entities.Task", b =>
+            modelBuilder.Entity("TaskManagement.Domain.Entities.AppTask", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -175,7 +140,7 @@ namespace TaskManagement.Infra.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 15, 12, 40, 32, 372, DateTimeKind.Local).AddTicks(1849));
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 18, 28, 14, 35, DateTimeKind.Local).AddTicks(3282));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -212,7 +177,42 @@ namespace TaskManagement.Infra.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Tasks", (string)null);
+                    b.ToTable("Tasks");
+                });
+
+            modelBuilder.Entity("TaskManagement.Domain.Entities.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("TaskManagement.Domain.Entities.TaskType", b =>
@@ -235,7 +235,7 @@ namespace TaskManagement.Infra.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TaskTypes", (string)null);
+                    b.ToTable("TaskTypes");
                 });
 
             modelBuilder.Entity("TaskManagement.Domain.Entities.User", b =>
@@ -256,7 +256,7 @@ namespace TaskManagement.Infra.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 15, 12, 40, 32, 372, DateTimeKind.Local).AddTicks(4894));
+                        .HasDefaultValue(new DateTime(2023, 12, 27, 18, 28, 14, 35, DateTimeKind.Local).AddTicks(6939));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -290,11 +290,6 @@ namespace TaskManagement.Infra.Data.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -388,7 +383,7 @@ namespace TaskManagement.Infra.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TaskManagement.Domain.Entities.Task", b =>
+            modelBuilder.Entity("TaskManagement.Domain.Entities.AppTask", b =>
                 {
                     b.HasOne("TaskManagement.Domain.Entities.TaskType", "TaskType")
                         .WithMany("Tasks")

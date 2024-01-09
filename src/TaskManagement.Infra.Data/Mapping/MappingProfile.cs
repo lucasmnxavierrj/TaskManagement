@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using TaskManagement.Application.InputModels;
 using TaskManagement.Domain.Entities;
+using TaskManagement.Domain.Interfaces;
 
 namespace TaskManagement.MVC.AutoMapper
 {
@@ -8,7 +8,9 @@ namespace TaskManagement.MVC.AutoMapper
 	{
 		public MappingProfile()
 		{
-			CreateMap<User,RegisterInputModel>().ReverseMap();
+			CreateMap<User,IRegisterInputModel>().ReverseMap();
+			CreateMap<User, ILoginInputModel>().ReverseMap();
+
 		}
 	}
 }

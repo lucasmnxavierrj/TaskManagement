@@ -8,10 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "TaskManagement.MVC/1.0.0": {
         "dependencies": {
-          "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.25",
-          "Microsoft.AspNetCore.Identity.UI": "6.0.25",
           "TaskManagement.Infra.Data": "1.0.0",
           "TaskManagement.Infra.IoC": "1.0.0"
         },
@@ -668,6 +665,8 @@
       },
       "TaskManagement.Application/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.25",
+          "Microsoft.AspNetCore.Identity.UI": "6.0.25",
           "TaskManagement.Domain": "1.0.0"
         },
         "runtime": {
@@ -684,6 +683,7 @@
       },
       "TaskManagement.Infra.Data/1.0.0": {
         "dependencies": {
+          "AutoMapper": "12.0.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.25",
           "Microsoft.EntityFrameworkCore": "7.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.11",

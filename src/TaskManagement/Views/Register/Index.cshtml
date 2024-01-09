@@ -33,9 +33,14 @@
 					<div class="form-group">
 						@if (TempData["ErrorRegistering"] != null)
 						{
+							var errors = TempData["ErrorRegistering"] as List<string>;
+
 							<div class="alert alert-danger" role="alert">
 								<small>
-									@TempData["ErrorRegistering"]
+									@foreach (var errorMessage in errors)
+									{
+										<li>@errorMessage</li>
+									}
 								</small>
 							</div>
 						}

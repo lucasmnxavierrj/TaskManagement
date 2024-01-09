@@ -11,7 +11,7 @@ namespace TaskManagement.Infra.Data.Context
 		public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
 		{ }
 
-		public DbSet<Domain.Entities.Task> Tasks { get; set; }
+		public DbSet<Domain.Entities.AppTask> Tasks { get; set; }
 		public DbSet<TaskType> TaskTypes { get; set; }
 		public DbSet<User> Users { get; set; }
 		public DbSet<Role> Roles { get; set; }

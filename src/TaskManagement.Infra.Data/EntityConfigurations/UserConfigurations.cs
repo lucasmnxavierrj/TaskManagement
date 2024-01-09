@@ -19,7 +19,6 @@ namespace TaskManagement.Infra.Data.EntityConfigurations
 			builder.Property(u => u.FirstName).HasMaxLength(100).IsRequired();
 			builder.Property(u => u.LastName).HasMaxLength(100).IsRequired();
 			builder.Property(u => u.Email).HasMaxLength(256).IsRequired();
-			builder.Property(u => u.Password).HasMaxLength(256).IsRequired();
 			builder.Property(u => u.UserName).HasMaxLength(80).IsRequired();
 			builder.Property(u => u.CreatedOn).HasDefaultValue(DateTime.Now).IsRequired();
 
